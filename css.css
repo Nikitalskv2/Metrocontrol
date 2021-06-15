@@ -115,7 +115,6 @@ screen-lg-max : 1999px
 	margin: 3px;
 	border: 2px solid black;
 	transform: scale(1.05);
-	/*text-decoration: underline;*/
 }
 .nav_link:active{
 	position: relative;
@@ -130,18 +129,25 @@ screen-lg-max : 1999px
 	display: none;
 }
 
-
+/*heder_burger*/
 @media (max-width: 767px ){
+	.a_bl{
+		display: none;
+	}
 	.header{
-		height: 80px;
-		display: flex;
-		margin:0 15px;
+		background: #fff;
+		width: 100%;
+		position: fixed;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
 	}
 	.header_body{
 		height: 80px;
-	}
-	.nav{
-		display: none;
+		margin:0 15px;
+		display: flex;
+		height: 80px;
 	}
 	.menu_burger{
 		display: block;
@@ -149,10 +155,63 @@ screen-lg-max : 1999px
 		z-index: 3;
 		width: 30px;
 		height: 21px;
-		background: red;
 	}
-	.a_bl{
-		display: none;
+	.menu_burger span{
+		position: absolute;
+		background-color: #1b4f6e;
+		width: 100%;
+		height: 3px;
+		left: 0;
+		top: 9px;
+		transition: all 0.5s ease 0s;
+	}
+	.menu_burger:before{
+		content: '';
+		background-color: #1b4f6e;
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		left: 0;
+		top: 0;
+		transition: all 0.5s ease 0s;
+	}
+	.menu_burger:after{
+		content: '';
+		background-color: #1b4f6e;
+		position: absolute;
+		width: 100%;
+		height: 3px;
+		left: 0;
+		bottom: 0;
+		transition: all 0.5s ease 0s;
+	}
+	.nav{
+		position: fixed;
+		padding: 200px 0;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #bddef3;
+		flex-direction: column;
+		font-size: 28px;
+		font-weight: 600;
+		font-variant: small-caps;
+		display:none;
+	}
+	.nav.active{
+		display: flex;
+	}
+		.menu_burger.active span{
+		transform: scale(0);
+	}
+	.menu_burger.active:before{
+		transform: rotate(45deg);
+		top: 9px;
+	}
+	.menu_burger.active:after{
+		transform: rotate(-45deg);
+		bottom: 9px;
 	}
 
 }
@@ -217,6 +276,7 @@ color: black;
 }
 @media (max-width: 767px ){
 	.img_hero{
+		margin-top: 80px;
 		height: 570px;
 	}
 	.container_hero{
@@ -310,7 +370,7 @@ color: black;
 
 @media (max-width: 767px ){
 	.box_2{
-		height: 1170px;
+		height: 100%;
 		width: 100%;
 		flex-direction: column;
 		justify-content: space-between;
@@ -321,7 +381,7 @@ color: black;
 		width: 100%;
 		padding-top: 60px;
 		padding: 0;
-		height: 660px;
+		height: 100%;
 	}
 	.box_2_l1 h2{
 		margin: 20px 15px;
@@ -345,6 +405,7 @@ color: black;
 	}
 	.box_2_r2{
 		width: 100%;
+		height: 100%;
 	}
 	.b2_r2_text{
 		padding: 80px 20px;
@@ -754,6 +815,7 @@ color: black;
 		padding: 0;
 	}
 	.box_7_text{
+		font-size: 15px;
 		width: 100%;
 		padding: 30px 15px;
 	}
@@ -790,7 +852,7 @@ color: black;
 }
 .box_8_l p{
 	font-size: 20px;
-	font-weight: 100;
+	font-weight: 500;
 	margin-bottom: 20px;
 }
 .box_8_l div{
@@ -955,7 +1017,7 @@ color: black;
 }
 .client_1{
 	margin: 50px;
-	background: lightgray;
+	background: #e6f3ff;
 	height: 500px;
 	display: flex;
 }
